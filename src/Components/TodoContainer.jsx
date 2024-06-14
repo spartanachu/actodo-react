@@ -1,20 +1,27 @@
+import InputAdd from "./InputAdd"
+import Addlist from "./Addlist"
+import { useState } from "react"
 function TodoContainer()
 {
+    const [listitem,setlistitem]=useState([{
+        id:1,
+        activity:"Morning go walk"
+    },
+    {
+        id:2,
+        activity:"Had Break first before 8 O Clock"
+    },
+    {
+        id:3,
+        activity:"Had Break first before 8 O Clock"
+    }
+])
+
     return(
         <>
-         <div className="flex flex-col gap-3">
-            <h1 className="text-2xl font-medium">Manage Activites</h1>
-            <div className="flex">
-            <input type="text" placeholder="Next Activity?" className="border border-black bg-transparent p-1" />
-            <button className="bg-black text-white border border-black p-1">Add</button>
-          </div>
-          </div>
-          <div>
-            <h1>Today's Activity</h1>
-            <ul>
-              <li>Go for walk</li>
-              <li>Go for walk</li>
-            </ul>
+        <div className="flex gap-2 flex-wrap">
+         <InputAdd listitemarr={listitem} setlistitemarr={setlistitem}/>
+          <Addlist listitemarr={listitem} setlistitemarr={setlistitem}/>
           </div>
         </>
     )
